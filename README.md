@@ -3,3 +3,4 @@
 
 # 팀원 목록 
 팀장 : 박중균 june3377@nate.com
+팀원1 : 김지혜 jihae1221@naver.com
