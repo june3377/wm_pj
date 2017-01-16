@@ -10,8 +10,9 @@ public class Baseball2 {
 	public static void main(String[] args) {
 		int s_cnt = 0;
 		int b_cnt = 0;
-		Scanner scanner = new Scanner(System.in);
 		random();
+		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("########################################################");
 		System.out.println("#                   play ball                          #");
 		System.out.println("########################################################");
@@ -21,22 +22,20 @@ public class Baseball2 {
 			System.out.print("숫자 3개를 입력해주세요 ex(1 2 3)");
 			String line = scanner.nextLine();
 
-			/* System.out.println("당신이 입력한 값은 "+line); */
 			String[] num = line.split(" ");
-
-			/* System.out.println(num[0]+""+num[1]+""+num[2]); */
 
 			for (int i = 0; i < realnum.length; i++) {
 				realnum[i] = Integer.parseInt(num[i]);
-				/* System.out.println(rearnum[i]); */
 			} // for문 끝
 
-			/*System.out.println("랜덤숫자:"+rd_num[0]+""+rd_num[1]+""+rd_num[2]);*/
+			System.out.println("랜덤숫자:"+rd_num[0]+""+rd_num[1]+""+rd_num[2]);
 
 			s_cnt = strike(realnum, rd_num);
 			b_cnt = ball(realnum, rd_num);
 
 			System.out.println(" 스트라이크 " + s_cnt + " 볼 " + b_cnt);
+			s_cnt = 0;
+			b_cnt = 0;
 			System.out.println();
 			cnt++;
 			if (s_cnt == 3) {
@@ -51,21 +50,22 @@ public class Baseball2 {
 	}
 
 	static int ball(int realnum[], int rd_num[]) {
-		int cp = 0;
-		int ball = 0;
-		while (cp < rd_num.length) {
-			int k = rd_num[cp];
-			int ud = 0;
-			while (ud < realnum.length) {
-				int m = realnum[ud];
-				if (k == m && cp != ud) {
-					ball = ball + 1;
-				}
-				ud = ud + 1;
-			}
-			cp = cp + 1;
-		}
-		return ball;
+		int p = 0;
+	    int ball = 0;
+	    while (p < rd_num.length ) {
+	        int k = rd_num[p];
+	        int d = 0;
+	        while (d < realnum.length){
+	            int m = realnum[d];
+	            if (k == m && p != d){
+	                ball = ball + 1;
+	            }
+	             
+	            d = d + 1;
+	        }
+	        p = p + 1;
+	    }
+	    return ball;
 	}
 
 	static int strike(int realnum[], int rd_num[]) {
