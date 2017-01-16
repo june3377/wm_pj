@@ -1,5 +1,4 @@
 package Tree;
-
 import java.util.Scanner;
 
 public class NewBaseball {
@@ -27,6 +26,11 @@ public class NewBaseball {
 				realnum[i] = Integer.parseInt(num[i]);
 			} // for문 끝
 
+			if ( realnum[0] == realnum[1] && realnum[2] == realnum[0] && realnum[2] == realnum[1]) {
+				System.out.println("중복된 숫자를 입력하셨습니다.");
+				continue;
+			}
+					
 			/*System.out.println("랜덤숫자:" + rd_num[0] + "" + rd_num[1] + "" + rd_num[2]);*/
 
 			strike_cnt = strike(realnum, rd_num);
