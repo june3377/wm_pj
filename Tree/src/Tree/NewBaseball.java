@@ -26,7 +26,7 @@ public class NewBaseball {
 				realnum[i] = Integer.parseInt(num[i]);
 			} // for문 끝
 
-			if ( realnum[0] == realnum[1] && realnum[2] == realnum[0] && realnum[2] == realnum[1]) {
+			if ( realnum[0] == realnum[1] || realnum[2] == realnum[0] || realnum[2] == realnum[1]) {
 				System.out.println("중복된 숫자를 입력하셨습니다.");
 				continue;
 			}
