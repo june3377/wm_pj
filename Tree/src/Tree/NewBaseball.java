@@ -1,6 +1,5 @@
 package Tree;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class NewBaseball {
@@ -28,7 +27,7 @@ public class NewBaseball {
 				realnum[i] = Integer.parseInt(num[i]);
 			} // for문 끝
 
-			System.out.println("랜덤숫자:" + rd_num[0] + "" + rd_num[1] + "" + rd_num[2]);
+			/*System.out.println("랜덤숫자:" + rd_num[0] + "" + rd_num[1] + "" + rd_num[2]);*/
 
 			strike_cnt = strike(realnum, rd_num);
 			ball_cnt = ball(realnum, rd_num);
@@ -50,7 +49,7 @@ public class NewBaseball {
 
 			}
 
-		} // while문 끝
+		}
 
 	}
 
