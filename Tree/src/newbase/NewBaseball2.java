@@ -9,9 +9,9 @@ public class NewBaseball2 {
 		tt.random();
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("########################################################");
-		System.out.println("#                   play ball                          #");
-		System.out.println("########################################################");
+		System.out.println("┌──────────────────────────────────────────────────────┐");
+		System.out.println("│                    Play Ball                         │");
+		System.out.println("└──────────────────────────────────────────────────────┘");
 		System.out.println();
 
 		while (true) {
