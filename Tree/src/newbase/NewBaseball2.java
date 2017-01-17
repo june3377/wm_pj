@@ -15,18 +15,24 @@ public class NewBaseball2 {
 		System.out.println();
 
 		while (true) {
-			System.out.print("숫자 3개를 입력해주세요 ex(1 2 3)");
-			String line = scanner.nextLine();
-			String[] num = line.split(" ");
+			
+			try {
+				System.out.print("숫자 3개를 입력해주세요 ex(1 2 3)");
+				String line = scanner.nextLine();
+				String[] num = line.split(" ");
 
-			for (int i = 0; i < realnum.length; i++) {
-				realnum[i] = Integer.parseInt(num[i]);
-			} // for문 끝
+				for (int i = 0; i < realnum.length; i++) {
+					realnum[i] = Integer.parseInt(num[i]);
+				} // for문 끝
 
-			if ( realnum[0] == realnum[1] && realnum[2] == realnum[0] && realnum[2] == realnum[1]) {
-				System.out.println("중복된 숫자를 입력하셨습니다.");
-				continue;
+				if ( realnum[0] == realnum[1] && realnum[2] == realnum[0] && realnum[2] == realnum[1]) {
+					System.out.println("중복된 숫자를 입력하셨습니다.");
+					continue;
+				}
+			} catch (Exception e) {
+				System.out.println("다시입력하세요!!");
 			}
+			
 					
 			/*tt.getRd_num();*/
 			tt.ball(realnum);
