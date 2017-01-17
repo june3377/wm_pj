@@ -8,6 +8,7 @@ public class Baseball {
 	private int strike_cnt;
 	private int ball_cnt;
 	private int[] rd_num;
+	private int[] realnum;
 	private HashMap<Integer, String> hm = new HashMap();
 	private int rank;
 
@@ -16,9 +17,19 @@ public class Baseball {
 		this.strike_cnt = 0;
 		this.ball_cnt = 0;
 		this.rd_num = new int[3];
+		this.realnum = new int[3];
+	}
+	
+	public void input(String line){
+		String[] num = line.split(" ");
+		
+		for (int i = 0; i < realnum.length; i++) {
+			realnum[i] = Integer.parseInt(num[i]);
+		}
+		
 	}
 
-	public void ball(int realnum[]) {
+	public void ball() {
 		int ball = 0;
 		for (int i = 0; i < rd_num.length; i++) {
 			for (int j = 0; j < rd_num.length; j++) {
@@ -34,7 +45,7 @@ public class Baseball {
 		ball_cnt = ball;
 	}
 
-	public void strike(int realnum[]) {
+	public void strike() {
 		int strike = 0;
 		for (int i = 0; i < rd_num.length; i++) {
 			if (rd_num[i] == realnum[i]) {
