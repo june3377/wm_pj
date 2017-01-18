@@ -11,7 +11,7 @@ public class Baseball {
 	private int[] realnum;
 	private HashMap<Integer, String> hm = new HashMap();
 	private int rank;
-	final int toIntValue = 10;
+	static final int TOINTVALUE = 10;
 
 	public Baseball() {
 		this.try_cnt = 0;
@@ -58,9 +58,9 @@ public class Baseball {
 
 	public void random() {
 		while (true) {
-			int num1 = (int) (Math.random() * toIntValue);
-			int num2 = (int) (Math.random() * toIntValue);
-			int num3 = (int) (Math.random() * toIntValue);
+			int num1 = (int) (Math.random() * TOINTVALUE);
+			int num2 = (int) (Math.random() * TOINTVALUE);
+			int num3 = (int) (Math.random() * TOINTVALUE);
 			if (num1 != num2 && num3 != num1 && num3 != num2) { // 중복안되게
 				rd_num[0] = num1;
 				rd_num[1] = num2;
