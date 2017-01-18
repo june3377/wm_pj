@@ -1,56 +1,11 @@
 package newbase;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.Scanner;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-
-public class NewBaseball2 extends JFrame implements ActionListener {
-	
-	private JOptionPane jop = new JOptionPane();
-	private JButton bt = new JButton("확인");
-	private URL imgURL = this.getClass().getResource("img.jpg");
-	private JLabel lb = new JLabel("감사합니다",JLabel.CENTER);
-	private ImageIcon image1 = new ImageIcon(imgURL);
-	private Font font = new Font("돋음", Font.BOLD, 30);
+public class NewBaseball2 {
 	
 	static Baseball tt = new Baseball();
-	
-	NewBaseball2(){
-		this.init();
-		this.start();
-		this.setVisible(true);
-		this.setSize(200, 350);
-	}
-	
-	private void start() {
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-
-	private void init() {
-		Container con = getContentPane();
-		BorderLayout bd = new BorderLayout();
-		con.setLayout(bd);
-		
-		Panel p1 = new Panel(new GridLayout(2,1));
-		
-		lb.setFont(font);
-		p1.add(lb);
-		p1.add(new JLabel("굿!!", image1, JLabel.CENTER));
-		con.add(p1);
-	}
 	
 	public static void main(String[] args) {
 		tt.random();
@@ -85,7 +40,6 @@ public class NewBaseball2 extends JFrame implements ActionListener {
 				String input = scanner.nextLine();
 				if (input.equals("n")) {
 					print(tt.getHm()+"님 감사합니다.");
-					new NewBaseball2();
 					break;
 				} else if (input.equals("y")) {
 					tt.rank_up();
@@ -102,8 +56,4 @@ public class NewBaseball2 extends JFrame implements ActionListener {
 		System.out.println(in);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-	}
 }
