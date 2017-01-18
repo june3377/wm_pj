@@ -85,8 +85,13 @@ public class Baseball {
 		return ball_cnt;
 	}
 
-	public void getRd_num() {
-		System.out.println("답은" + rd_num[0] + "" + rd_num[1] + "" + rd_num[2]);
+	public String getRd_num() {
+		String cheat = "답은";
+		cheat += rd_num[0];
+		cheat += rd_num[1];
+		cheat += rd_num[2];
+		
+		return cheat;
 	}
 
 	public String getHm() {

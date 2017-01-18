@@ -26,7 +26,7 @@ public class NewBaseball2 {
 			tt.ball();
 			tt.strike();
 
-			tt.getRd_num();
+			print(tt.getRd_num());
 			print(" 스트라이크 " + tt.getStrike_cnt() + " 볼 " + tt.getBall_cnt());
 			tt.b_try();
 
@@ -38,14 +38,13 @@ public class NewBaseball2 {
 
 				String input = scanner.nextLine();
 				if (input.equals("n")) {
-					print("플레이어 명단");
-					print(tt.getHm());
+					print(tt.getHm()+"님 감사합니다.");
 					break;
 				} else if (input.equals("y")) {
 					tt.rank_up();
 					tt.newgame();
 				} else if (input.equals("cheat")) {
-					tt.getRd_num();
+					print(tt.getRd_num());
 					tt.newgame();
 				}
 			}
