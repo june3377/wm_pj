@@ -9,7 +9,7 @@ public class Baseball {
 	private int ball_cnt;
 	private int[] rd_num;
 	private int[] realnum;
-	private HashMap<Integer, String> hm = new HashMap();
+	private String hm;
 	private int rank;
 	static final int TOINTVALUE = 10;
 
@@ -96,13 +96,11 @@ public class Baseball {
 	}
 
 	public String getHm() {
-		if(hm.get(1) == null) return hm.get(0);
-		if(hm.get(2) == null) return hm.get(0) + hm.get(1);
-		return hm.get(0)+","+ hm.get(1)+","+ hm.get(2);
+		return hm;
 	}
-
-	public void setHm(String name) {
-		this.hm.put(rank, name);
+	
+	public void setHm(String hm) {
+		this.hm = hm;
 	}
 	
 	public void rank_up(){
