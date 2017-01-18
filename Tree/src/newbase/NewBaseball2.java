@@ -8,7 +8,7 @@ public class NewBaseball2 {
 
 	public static void main(String[] args) {
 		tt.random();
-
+		
 		Scanner scanner = new Scanner(System.in);
 		print("┌──────────────────────────────────────────────────────┐");
 		print("│                    Play Ball                         │");

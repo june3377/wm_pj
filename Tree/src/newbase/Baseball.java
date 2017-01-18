@@ -11,6 +11,7 @@ public class Baseball {
 	private int[] realnum;
 	private HashMap<Integer, String> hm = new HashMap();
 	private int rank;
+	final int toIntValue = 10;
 
 	public Baseball() {
 		this.try_cnt = 0;
@@ -57,9 +58,9 @@ public class Baseball {
 
 	public void random() {
 		while (true) {
-			int num1 = (int) (Math.random() * 10);
-			int num2 = (int) (Math.random() * 10);
-			int num3 = (int) (Math.random() * 10);
+			int num1 = (int) (Math.random() * toIntValue);
+			int num2 = (int) (Math.random() * toIntValue);
+			int num3 = (int) (Math.random() * toIntValue);
 			if (num1 != num2 && num3 != num1 && num3 != num2) { // 중복안되게
 				rd_num[0] = num1;
 				rd_num[1] = num2;
@@ -112,5 +113,29 @@ public class Baseball {
 	}
 	public void newgame(){
 		this.try_cnt=0;
+	}
+	public int getRd_numLength(){
+		return rd_num.length;
+	}
+	public void modifyRd_num(int index, int value){
+		this.rd_num[index] = value;
+	}
+	public int getRd_num(int index){
+		return rd_num[index];
+	}
+	public void removeRd_num(){
+		for(int i=0 ; i<rd_num.length ; i++) rd_num[i]=0;
+	}
+	public int getRealnumLength(){
+		return realnum.length;
+	}
+	public void modifyRealnum(int index, int value){
+		this.realnum[index] = value;
+	}
+	public int getRealnum(int index){
+		return realnum[index];
+	}
+	public void removeRealnum(){
+		for(int i=0 ; i<realnum.length ; i++) realnum[i]=0;
 	}
 }
