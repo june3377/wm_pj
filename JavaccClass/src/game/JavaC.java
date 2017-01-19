@@ -44,12 +44,17 @@ public class JavaC extends Member implements LearnSports {
 		}
 	}
 	
+	public int random(){
+		int rand = 0;
+			rand = (int) Math.random()*10;
+			return rand;
+	}
 
 	public boolean attack(JavaC name) {
+		if(random() == 7){
+			this.attack += 20;
+		}
 		
-		
-		
-		System.out.println("공격받는애 체력" + name.getStrength());
 		int life = name.getStrength() - this.attack;
 
 		if (life < 0) {
