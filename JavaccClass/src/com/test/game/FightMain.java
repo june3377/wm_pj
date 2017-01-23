@@ -56,7 +56,7 @@ public class FightMain {
 			} else {
 				print(" 					 ##공격 실패##");
 				flag = 5;
-				print("	============== 상대가 죽었습니다 ===============");
+				print("	============== 상대를 깔아눕혔습니다 ===============");
 				print(captain.getName()+"승리!!");
 
 			}
@@ -74,7 +74,7 @@ public class FightMain {
 				} else {
 					print(" 				 ##공격 실패##");
 					flag = 5;
-					print("	============== 상대가 죽었습니다 ===============");
+					print("	============== 상대를 깔아눕혔습니다 ===============");
 					print(subCaptain.getName()+"승리!!");
 				}
 				System.out.println("");
