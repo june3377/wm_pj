@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>댓글작성</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <form action="/board/comment" method="post" class="form-inline">
+    <table width="400" class="table table-condensed">
+      <h1>댓글</h1>
+      <tr>
+        <th>id</th>
+        <td><input type="text" name="id" size="30" maxlength="50" class="form-control"/></td>
+      </tr>
+      <tr>
+        <th>내용</th>
+        <td><input type="text" name="content" size="30" maxlength="150" class="form-control"/></td>
+      </tr>
+      <tr>
+        <th>비밀번호</th>
+        <td><input type="password" name="pwd" size="12" maxlength="12" class="form-control"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="쓰기" class="btn btn-primary"/>
+          <input type="reset" value="취소" class="btn btn-default"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  </body>
+</html>

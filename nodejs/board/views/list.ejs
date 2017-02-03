@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" href="jumbotron.css" >
+</head>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Smart Washer</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="/"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="/board/list">댓글작성</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<body>
+<div class="container">
+    <a  class="row">
+        <!-- 번호, 제목, 작성자, 날짜, 조회수-->
+
+            <table width="400" class="table table-condensed">
+                <form action="/board/comment" method="post" class="form-inline">
+                <h1>댓글</h1>
+                <tr>
+                    <td><input type="hidden" name="id" size="30" value="<%=sess.user_name%>" maxlength="50" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><input type="text" name="content" size="30" maxlength="80" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td><input type="password" name="pwd" size="12" maxlength="12" class="form-control"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <%if(sess.user_id != undefined && sess.user_id != ''){%>
+                        <input type="submit" value="쓰기" class="btn btn-primary"/>
+                        <input type="reset" value="취소" class="btn btn-default"/>
+                        <%}else {%>
+                        로그인 해주세요!!
+                        <%}%>
+                    </td>
+                </tr>
+                </form>
+            </table>
+
+
+        <table width="600" class="table table-condensed">
+            <tr>
+                <th width="40">번호</th>
+                <th width="40">작성자</th>
+                <th width="120">내용</th>
+                <th width="40">날짜</th>
+            </tr>
+            <%
+            for(var i= 0, len =  data.length; i < len, item = data[i]; i++){
+            %>
+            <tr>
+                <td><%=max-i%></td>
+                <td><%=item.id%></td>
+                <td><%=item.content%></td>
+                <td><%=item.regdate.toLocaleDateString()%></td>
+            </tr>
+            <%
+            }
+            %>
+        </table>
+        <div style="width:46em;text-align:center;padding-top:2px">
+            <% if(page > pageSize) { %>
+            [ <a href="/board/list/1" style="text-decoration: none;">◀◀</a> ]
+            [ <a href="/board/list/<%=startPage-1%>" style="text-decoration: none;">◀</a> ]
+            <% } else {%>
+            [ <span style="color:gray">◀◀</span> ]
+            [ <span style="color:gray">◀</span> ]
+            <% } %>
+            &nbsp;&nbsp;
+            <% for (var i=startPage; i<=endPage; i++) { %>
+            <% if (i== page) {%>
+            [ <%=i%> ]
+            <% } else { %>
+            [ <a href="/board/list/<%=i%>" style="text-decoration: none;"><%=i%></a> ]
+            <% } %>
+            <% } %>
+            &nbsp;&nbsp;
+            <% if (endPage < totalPage) { %>
+            [ <a href="/board/list/<%=endPage+1%>" style="text-decoration: none;">▶</a> ]
+            [ <a href="/board/list/<%=totalPage%>" style="text-decoration: none;">▶▶</a> ]
+            <% } else {%>
+            [ <span style="color:gray">▶</span> ]
+            [ <span style="color:gray">▶▶</span> ]
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

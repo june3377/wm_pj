@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmartWasher</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+      <link rel="stylesheet" href="jumbotron.css" >
+  </head>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Smart Washer</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="/board/list">댓글작성</a></li>
+              </ul>
+          </div><!--/.nav-collapse -->
+      </div>
+  </nav>
+
+
+  <body>
+    <center>
+
+        <% if(sess.user_name != undefined){ %>
+        <br><h2>반갑습니다! <%= sess.user_name %>님 <a href="/logout">로그아웃</a> </br> 방번호 : <%= sess.user_room %></h2>
+
+        <% }else{ %>
+
+        <form method="post" action="/users">
+            <font class="form-control">아이디 </font> <input type="text" class="form-control" name="user_id" /><br />
+            <font class="form-control">비밀번호 </font> <input type="password" class="form-control" name="user_pass" /><br />
+            <input class="btn btn-default" type="submit" value="로그인">
+            <button class="btn btn-default" type="button" onclick="location.href='/signup'">회원가입</button>
+        </form>
+        <% } %>
+        <br/>
+        <br/>
+        <form action="#" method="">
+        <%
+            for(var i=0; i<rows.length; i++)
+            {
+            var wahser = rows[i];
+            %>
+            <tr>
+                <td><%=wahser.wh_no%>번 세탁기</td>
+                <td><%if(wahser.user_id==100)%>사용자없음</td>
+                <td><%if(wahser.wh_code == 100){ %>
+                    사용가능 <%}else if(wahser.wh_code==101){%>
+                    작동중<%}%></td>
+                <td><%=wahser.wh_time.toLocaleDateString()%></td>
+                <%if(wahser.wh_code == 100){ %>
+                <img src="https://cdn0.iconfinder.com/data/icons/elite-household/512/washer-dryer-512.png" height="150" width="130"/>
+                <%}else if(wahser.wh_code==101){%>
+                <img src="http://meowgifs.com/wp-content/uploads/2013/06/washing-machine-cat.gif" height="150" width="130"/>
+                <%}%>
+                <input type="checkbox" name="ch1" value="<%=wahser.wh_no%>">
+        </tr>
+        <br/>
+
+        <%
+        }
+        %>
+            <%if(sess.user_id == '100'){%>
+                <input type="submit" value="고장">
+                <input type="reset">
+            <%}else if(sess.user_id != undefined){%>
+                <button id="pw" value="javascript:send();">예약</button>
+            <%}%>
+        </form>
+
+    </center>
+  </body>
+</html>
