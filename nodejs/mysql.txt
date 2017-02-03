@@ -1,0 +1,29 @@
+CREATE TABLE `user` (
+  `user_id` int(10) NOT NULL,
+  `user_pw` varchar(60) NOT NULL,
+  `user_name` varchar(60) NOT NULL,
+  `user_hp` varchar(60) NOT NULL,
+  `user_room` varchar(60) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `reservation` (
+  `res_no` int(10) NOT NULL,
+  `wh_no` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  PRIMARY KEY (`res_no`,`wh_no`,`user_id`),
+  KEY `wh_no_idx` (`wh_no`),
+  KEY `user_id_idx` (`user_id`),
+  CONSTRAINT `no` FOREIGN KEY (`wh_no`) REFERENCES `washer` (`wh_no`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `washer` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `washer` (
+  `wh_no` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `wh_code` int(10) NOT NULL,
+  `wh_time` date NOT NULL,
+  PRIMARY KEY (`wh_no`,`user_id`),
+  KEY `id_idx` (`user_id`),
+  KEY `user_id_idx` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
