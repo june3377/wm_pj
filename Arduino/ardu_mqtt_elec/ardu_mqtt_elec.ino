@@ -5,9 +5,9 @@
 #define OFF 100
 #define TOPIC "test"  
 char ssid[] = "SK-207-222"; char password[] = "DONGGUK-AP12";
-byte server[] = {172,17,161,236}; // 성준
+//byte server[] = {172,17,161,236}; // 성준
 //byte server[] = {172,17,203,244}; // 동근
-//byte server[] = {172,17,12,14};
+byte server[] = {172,17,12,14}; //중균
 int port = 1883;
 char clientId[8];
 char topic[10];
