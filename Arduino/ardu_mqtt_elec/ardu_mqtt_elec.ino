@@ -1,5 +1,6 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
+
 #include "PubSubClient.h"
 #define ON 101  
 #define OFF 100
@@ -12,6 +13,8 @@ int port = 1883;
 char clientId[8];
 char topic[10];
 int id = 1;
+int minute=1;
+int second=10;
 byte byteMacAddr[6];
 void msgReceived(char *topic, byte *payload, unsigned int uLen) {}
 float volt;
@@ -57,7 +60,7 @@ down to 0.1 so I kept using it. (It shows value to .01, but rounds up on the las
     Serial.print(volt); //Print the the variable to the serial terminal.
     Serial.println("V"); //Makes it pretty, also prints newline character.
     delay(1500); //Delays for 1 second. Without this, it would be hard to read the values.
-    if( volt > 2.5) {
+    if( volt > 0.8) {
       digitalWrite(pin, HIGH);
       WasherStatus = ON;
     }else{
